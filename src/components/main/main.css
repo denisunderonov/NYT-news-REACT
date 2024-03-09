@@ -1,0 +1,116 @@
+main {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+h1 {
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 30px;
+    margin: 0 auto;
+    width: fit-content;
+    margin-bottom: 40px;
+}
+
+.news-container {
+  max-width: 1360px;
+  margin: 0 auto;
+}
+
+.news__list {
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.news__item {
+  width: 40%;
+  height: fit-content;
+  -webkit-box-shadow: -1px 1px 26px 0px rgba(34, 60, 80, 0.2);
+  -moz-box-shadow: -1px 1px 26px 0px rgba(34, 60, 80, 0.2);
+  box-shadow: -1px 1px 26px 0px rgba(34, 60, 80, 0.2);
+  padding-bottom: 20px;
+}
+
+.news__item--image {
+    width: 100%;
+    height: 80%;
+    margin-bottom: 20px;
+}
+
+.news__description--buttons {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.news__desctiption--news-name {
+  width: fit-content;
+  margin: 0 auto;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 20px;
+  margin-bottom: 60px;
+  text-align: center;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.news__buttons--product-more {
+  background-color: rgba(255, 238, 237, 0.363);
+  padding: 15px;
+  border-radius: 5px;
+  text-transform: uppercase;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 12px;
+}
+
+.news__buttons--like-button {
+  max-width: 50px;
+}
+
+
+.news__description--like-button-href {
+  display: block;
+  padding: 10px;
+  border-radius: 50%;
+}
+
+li {
+  list-style-type: none;
+}
+
+.modal-card {
+  max-width: 40%;
+  margin: 0 auto;
+}
+
+.modal-card__image {
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 40px;
+}
+
+.modal-card__main-text {
+  text-align: center;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 30px;
+  margin-bottom: 30px;
+}
+
+.modal-card__nyt-button {
+  padding: 10px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  background-color: aliceblue;
+}
+
+.modal-card__back-button {
+  padding: 10px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  background-color: aliceblue;
+}
+
+.modal-card__buttons {
+  display: flex;
+  justify-content: space-between;
+}
