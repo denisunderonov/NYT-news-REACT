@@ -1,7 +1,7 @@
 import logo from "./img/logo.svg";
 import "./header.css";
 
-export default function Header() {
+export default function Header({ likeCounter }) {
   return (
     <header>
       {
@@ -9,10 +9,11 @@ export default function Header() {
           component={
             <>
               <HeaderLogotype />
+              <HeaderNameSite />
               <HeaderList
                 component={
                   <>
-                    <HeaderItem text="My News" />
+                    <HeaderItem text="My News" likeCounter={likeCounter} />
                   </>
                 }
               />
@@ -36,7 +37,11 @@ function HeaderList({ component }) {
   return <ul className="header__list">{component}</ul>;
 }
 
-function HeaderItem({ text }) {
-  return <li className="header-list__item"><a href="#">{text}</a><span className="header-list__item-check">0</span></li>;
+function HeaderItem({ text, likeCounter }) {
+  return <li className="header-list__item"><a href="#">{text}</a><span className="header-list__item-check">{likeCounter}</span></li>;
+}
+
+function HeaderNameSite() {
+  return <a href="#" className="header__site-name">hot news</a>
 }
 

@@ -114,3 +114,8 @@ li {
   display: flex;
   justify-content: space-between;
 }
+
+.news__buttons--like-button {
+  padding: 6px;
+  border-radius: 40%;
+}

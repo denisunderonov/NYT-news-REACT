@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import "./main.css";
 import likeIcon from "./img/like.svg";
 
-export default function Main() {
+export default function Main({ setLikeCounter, likeCounter }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [newsData, setNewsData] = useState([]);
   const [activeCardInfo, setActiveCardInfo] = useState({});
@@ -46,6 +46,8 @@ export default function Main() {
                   component={newsData.map((item, index) => {
                     return (
                       <NewsItem
+                        likeCounter={likeCounter}
+                        setLikeCounter={setLikeCounter}
                         info={newsData}
                         openModal={openModal}
                         cardIndex={index}
@@ -77,7 +79,15 @@ function NewsList({ component }) {
   return <ul className="news__list">{component}</ul>;
 }
 
-function NewsItem({ image, text, cardIndex, openModal, info }) {
+function NewsItem({
+  image,
+  text,
+  cardIndex,
+  openModal,
+  info,
+  setLikeCounter,
+  likeCounter,
+}) {
   return (
     <li className={`news__item news__item-${cardIndex}`}>
       <img className="news__item--image" src={image} alt="Картинка новости" />
@@ -98,13 +108,18 @@ function NewsItem({ image, text, cardIndex, openModal, info }) {
           >
             More information
           </button>
-          <a href="#" className="news__description--like-button-href">
+          <button
+            onClick={(e) => {
+              activateLike(e, setLikeCounter);
+            }}
+            className="news__description--like-button-href"
+          >
             <img
               src={likeIcon}
               className="news__buttons--like-button"
               alt="Кнопка лайка"
             />
-          </a>
+          </button>
         </div>
       </div>
     </li>
@@ -136,4 +151,14 @@ function Modal({ image, text, info, infoIndex, setIsModalOpen }) {
       </div>
     </div>
   );
+}
+
+function activateLike(e, setLikeCounter) {
+  if (e.target.style.background === "red") {
+    e.target.style.background = "none";
+    setLikeCounter((prev) => prev - 1);
+  } else {
+    e.target.style.background = "red";
+    setLikeCounter((prev) => prev + 1);
+  }
 }

@@ -1,9 +1,9 @@
 body {
-  background: rgb(220, 183, 245);
+  
   background: linear-gradient(
     90deg,
-    rgba(220, 183, 245, 1) 34%,
-    rgba(246, 246, 246, 1) 100%
+    rgba(214, 214, 214, 1) 6%,
+    rgba(113, 113, 113, 0.5802696078431373) 98%
   );
   padding-bottom: 20px;
 }
@@ -14,7 +14,7 @@ header {
   margin-bottom: 50px;
   position: sticky;
   top: 0;
-  background-color: #ffe3e377;
+  background-color: #4a494990;
 }
 
 .header-container {
@@ -50,9 +50,17 @@ header {
   display: block;
   top: -15px;
   right: 0;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
 
 .header-list__item {
   position: relative;
+}
+
+.header__site-name {
+  text-decoration: none;
+  text-transform: uppercase;
+  color:#000;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 35px;
 }
