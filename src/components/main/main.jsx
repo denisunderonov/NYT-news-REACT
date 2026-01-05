@@ -14,12 +14,17 @@ export default function Main({ setLikeCounter, likeCounter }) {
 
   useEffect(() => {
     fetch(
-      "https://api.nytimes.com/svc/mostpopular/v2/viewed/7.json?api-key=32IrJSZalanhaRq5LgMuLO3QHxwmJUUX"
+      "https://content.guardianapis.com/search?api-key=test&show-fields=thumbnail,headline,trailText"
     )
       .then((response) => {
         return response.json().then((data) => {
-          console.log(data.results);
-          setNewsData(data.results);
+          console.log(data.response.results);
+          const formattedData = data.response.results.map(item => ({
+            title: item.webTitle,
+            image: item.fields?.thumbnail || 'https://via.placeholder.com/400x300?text=No+Image',
+            url: item.webUrl
+          }));
+          setNewsData(formattedData);
         });
       })
       .catch((error) => {
@@ -53,9 +58,7 @@ export default function Main({ setLikeCounter, likeCounter }) {
                         cardIndex={index}
                         key={index}
                         image={
-                          newsData[index].media[0]
-                            ? newsData[index].media[0]["media-metadata"][2].url
-                            : `#`
+                          newsData[index].image || 'https://via.placeholder.com/400x300?text=No+Image'
                         }
                         text={newsData[index].title}
                       />
@@ -138,7 +141,7 @@ function Modal({ image, text, info, infoIndex, setIsModalOpen }) {
       <h2 className="modal-card__main-text">{text}</h2>
       <div className="modal-card__buttons">
         <a href={info[infoIndex].url} className="modal-card__nyt-button">
-          Read New on official NYT website
+          Read full article
         </a>
         <button
           onClick={() => {
